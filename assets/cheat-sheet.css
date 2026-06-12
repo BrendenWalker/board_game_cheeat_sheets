@@ -158,22 +158,11 @@ a {
   text-decoration: underline;
 }
 
-/* Print view: sheet content only, with print-oriented typography on screen. */
-body.print-view {
-  padding: 0;
-  font-size: 11pt;
-}
-
-body.print-view main h2:nth-of-type(2),
-body.print-view main h2:nth-of-type(3) {
-  break-before: page;
-  page-break-before: always;
-}
-
 @media print {
   body {
     padding: 0;
-    font-size: 11pt;
+    font-size: 10pt;
+    line-height: 1.35;
   }
 
   .site-header,
@@ -181,20 +170,53 @@ body.print-view main h2:nth-of-type(3) {
     display: none;
   }
 
-  /* Setup, Play, Additional details are always the 1st–3rd h2 in main. */
-  main h2:nth-of-type(2),
-  main h2:nth-of-type(3) {
-    break-before: page;
-    page-break-before: always;
+  h1 {
+    font-size: 1.35rem;
+    margin: 0 0 0.4rem;
   }
 
   h2 {
+    font-size: 1.1rem;
+    margin: 0.85rem 0 0.35rem;
     break-after: avoid;
   }
 
-  h3,
-  h4 {
+  h3 {
+    font-size: 1rem;
+    margin: 0.65rem 0 0.3rem;
     break-after: avoid;
+  }
+
+  h4 {
+    font-size: 0.95rem;
+    margin: 0.5rem 0 0.25rem;
+    break-after: avoid;
+  }
+
+  p,
+  ul,
+  ol {
+    margin: 0.35rem 0;
+  }
+
+  li {
+    margin: 0.12rem 0;
+  }
+
+  table {
+    margin: 0.45rem 0;
+    font-size: 0.92rem;
+  }
+
+  th,
+  td {
+    padding: 0.25rem 0.4rem;
+  }
+
+  .sheet-section--play,
+  .sheet-section--additional-details {
+    break-before: page;
+    page-break-before: always;
   }
 
   table,

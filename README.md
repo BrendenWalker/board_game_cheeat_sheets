@@ -1,6 +1,8 @@
 # Board Game Cheat Sheets
 
-Markdown quick-reference cheat sheets for board games. Each file distills setup, turn flow, and key details into a scannable format for use at the table.
+Tired of games rules organized by graphic designers/artists?  Can't count the number of times we've played a game only to miss some rule wrinkle buried in a side-bar on a page full of eye-scorching graphics.
+
+I hope these are helpful to others.
 
 **[Browse cheat sheets (HTML) →](https://brendenwalker.github.io/board_game_cheeat_sheets/)**
 

@@ -1,8 +1,9 @@
-import { readdir, mkdir } from 'node:fs/promises';
+import { readdir, readFile, mkdir } from 'node:fs/promises';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mdToPdf } from 'md-to-pdf';
 import puppeteer from 'puppeteer';
+import { wrapSheetSections, PRINT_LAYOUT } from './cheat-sheet-html.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const gamesDir = join(root, 'games');
@@ -35,17 +36,20 @@ async function main() {
     const slug = file.replace(/\.md$/, '');
     const inputPath = join(gamesDir, file);
     const dest = join(pdfDir, `${slug}.pdf`);
+    const markdown = await readFile(inputPath, 'utf8');
+    const margin = `${PRINT_LAYOUT.marginInches}in`;
 
     await mdToPdf(
-      { path: inputPath },
+      { content: wrapSheetSections(markdown) },
       {
         dest,
+        basedir: gamesDir,
         stylesheet,
         page_media_type: 'print',
         launch_options: launchOptions,
         pdf_options: {
           format: 'Letter',
-          margin: { top: '0.6in', right: '0.6in', bottom: '0.6in', left: '0.6in' },
+          margin: { top: margin, right: margin, bottom: margin, left: margin },
           printBackground: true,
         },
       },
