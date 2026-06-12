@@ -12,6 +12,16 @@ const stylesheet = resolve(root, 'assets', 'cheat-sheet.css');
 async function main() {
   await mkdir(pdfDir, { recursive: true });
   const executablePath = await puppeteer.executablePath();
+  const launchOptions = { executablePath };
+
+  // GitHub Actions and other Linux CI runners block Chrome's sandbox.
+  if (process.env.CI) {
+    launchOptions.args = [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+    ];
+  }
 
   const files = (await readdir(gamesDir))
     .filter((name) => name.endsWith('.md'))
@@ -31,9 +41,7 @@ async function main() {
       {
         dest,
         stylesheet,
-        launch_options: {
-          executablePath,
-        },
+        launch_options: launchOptions,
         pdf_options: {
           format: 'Letter',
           margin: { top: '0.6in', right: '0.6in', bottom: '0.6in', left: '0.6in' },
