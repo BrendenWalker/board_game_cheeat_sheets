@@ -1,0 +1,51 @@
+---
+description: Author board game cheat sheet markdown files
+globs: games/**/*.md
+alwaysApply: false
+---
+
+# Cheat Sheet Authoring
+
+You are editing a board game cheat sheet in `games/`. Follow this schema and style.
+
+## Structure
+
+Use exactly these headings in order (omit empty subsections):
+
+```markdown
+# Game Name
+
+## **Setup**
+---
+### Board setup
+...
+
+## **Play**
+...
+
+## **Additional details**
+...
+```
+
+Main sections: bold `##` heading + one `---` line beneath only (no line above).
+
+## Style
+
+- Quick-reference only — terse bullets, imperative voice, no tutorial prose
+- **Multi-part steps → sub-bullets** — parent bullet + indented sub-bullets; never chain parts with semicolons on one line
+- Official rulebook terminology
+- Numbered list for **Step-by-step turn** (one full turn in order)
+- **Turn step details** only when a step needs expansion (actions, limits, costs)
+- Do not repeat turn summary prose in step details
+
+## Before finishing
+
+- [ ] Setup, Play, and Additional details all present (`## **Title**` + one `---` beneath, no line above)
+- [ ] Turn flow is ordered and complete
+- [ ] Commonly overlooked rules (if any) after Step-by-step turn, before Turn step details
+- [ ] Scoring / end game in Additional details (if applicable)
+- [ ] File saved as `games/<lowercase-hyphenated-slug>.md`
+
+## Reference
+
+Copy structure from [`templates/cheat-sheet.md`](../../templates/cheat-sheet.md). Full workflow in [`AGENTS.md`](../../AGENTS.md).
