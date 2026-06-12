@@ -41,6 +41,7 @@ async function main() {
       {
         dest,
         stylesheet,
+        page_media_type: 'print',
         launch_options: launchOptions,
         pdf_options: {
           format: 'Letter',

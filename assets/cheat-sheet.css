@@ -37,6 +37,39 @@ body {
   text-decoration: underline;
 }
 
+.print-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  max-width: 70ch;
+  margin: 0 auto 1rem;
+  font-size: 0.95rem;
+}
+
+.print-toolbar a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.print-toolbar a:hover {
+  text-decoration: underline;
+}
+
+.print-toolbar button {
+  font: inherit;
+  color: var(--text);
+  background: #f6f8fa;
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+}
+
+.print-toolbar button:hover {
+  background: #eef1f4;
+}
+
 main {
   max-width: 70ch;
   margin: 0 auto;
@@ -125,14 +158,34 @@ a {
   text-decoration: underline;
 }
 
+/* Print view: sheet content only, with print-oriented typography on screen. */
+body.print-view {
+  padding: 0;
+  font-size: 11pt;
+}
+
+body.print-view main h2:nth-of-type(2),
+body.print-view main h2:nth-of-type(3) {
+  break-before: page;
+  page-break-before: always;
+}
+
 @media print {
   body {
     padding: 0;
     font-size: 11pt;
   }
 
-  .site-header {
-    border-bottom-color: #999;
+  .site-header,
+  .print-toolbar {
+    display: none;
+  }
+
+  /* Setup, Play, Additional details are always the 1st–3rd h2 in main. */
+  main h2:nth-of-type(2),
+  main h2:nth-of-type(3) {
+    break-before: page;
+    page-break-before: always;
   }
 
   h2 {

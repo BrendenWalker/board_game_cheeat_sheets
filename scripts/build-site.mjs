@@ -10,21 +10,34 @@ const assetsDir = join(siteDir, 'assets');
 
 marked.setOptions({ gfm: true });
 
-function pageShell({ title, bodyHtml, backLink }) {
-  const header = backLink
-    ? `<header class="site-header"><a href="${backLink}">← All cheat sheets</a></header>`
-    : `<header class="site-header"><strong>Board Game Cheat Sheets</strong></header>`;
+function pageShell({ title, bodyHtml, mode, slug }) {
+  const bodyClass = mode === 'print' ? ' class="print-view"' : '';
+
+  let chrome = '';
+  if (mode === 'index') {
+    chrome = '<header class="site-header"><strong>Board Game Cheat Sheets</strong></header>';
+  } else if (mode === 'sheet') {
+    chrome = `<header class="site-header"><a href="index.html">← All cheat sheets</a></header>
+  <nav class="print-toolbar" aria-label="Print">
+    <a href="${slug}-print.html">Print view</a>
+  </nav>`;
+  } else if (mode === 'print') {
+    chrome = `<nav class="print-toolbar" aria-label="Print">
+    <a href="${slug}.html">← Sheet view</a>
+    <button type="button" onclick="window.print()">Print</button>
+  </nav>`;
+  }
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${escapeHtml(title)}</title>
+  <title>${escapeHtml(title)}${mode === 'print' ? ' — Print' : ''}</title>
   <link rel="stylesheet" href="assets/cheat-sheet.css">
 </head>
-<body>
-  ${header}
+<body${bodyClass}>
+  ${chrome}
   <main>${bodyHtml}</main>
 </body>
 </html>
@@ -79,7 +92,7 @@ async function main() {
   const indexHtml = pageShell({
     title: 'Board Game Cheat Sheets',
     bodyHtml: `<h1>Board Game Cheat Sheets</h1>\n<ul class="index-list">\n${indexItems}\n</ul>`,
-    backLink: null,
+    mode: 'index',
   });
 
   await writeFile(join(siteDir, 'index.html'), indexHtml);
@@ -89,9 +102,17 @@ async function main() {
     const html = pageShell({
       title,
       bodyHtml,
-      backLink: 'index.html',
+      mode: 'sheet',
+      slug,
+    });
+    const printHtml = pageShell({
+      title,
+      bodyHtml,
+      mode: 'print',
+      slug,
     });
     await writeFile(join(siteDir, `${slug}.html`), html);
+    await writeFile(join(siteDir, `${slug}-print.html`), printHtml);
   }
 
   console.log(`Built ${games.length} cheat sheet(s) in _site/`);
