@@ -2,11 +2,24 @@
 
 Markdown quick-reference cheat sheets for board games. Each file distills setup, turn flow, and key details into a scannable format for use at the table.
 
+**[Browse cheat sheets (HTML) →](https://brendenwalker.github.io/board_game_cheeat_sheets/)**
+
 ## Board Game Index
 
 - [Pandemic](games/pandemic.md)
 - [Pandemic: Reign of Cthulhu](games/reign-of-cthulhu.md)
 - [Pandemic: Rising Tide](games/rising-tide.md)
+
+## Published cheat sheets
+
+Each push to `main` rebuilds HTML and PDF outputs from `games/*.md`.
+
+- **Live site (GitHub Pages):** https://brendenwalker.github.io/board_game_cheeat_sheets/
+- **PDFs:** [Actions](https://github.com/BrendenWalker/board_game_cheeat_sheets/actions) → latest **Publish cheat sheets** run → **cheat-sheet-pdfs** artifact
+
+**One-time setup:** In repo **Settings → Pages**, set **Build and deployment → Source** to **GitHub Actions**.
+
+**Local PDF build:** `npm install` downloads Chrome via Puppeteer (`postinstall`). If `npm run pdf` still fails, run `npx puppeteer browsers install chrome`.
 
 ## Repository structure
 
@@ -14,6 +27,9 @@ Markdown quick-reference cheat sheets for board games. Each file distills setup,
 board_game_cheeat_sheets/
 ├── README.md              # This file — human onboarding
 ├── AGENTS.md              # Instructions for AI tooling
+├── .github/workflows/     # Publish HTML (Pages) + PDF artifacts
+├── scripts/               # Site and PDF build scripts
+├── assets/                # Shared stylesheet for published output
 ├── .cursor/rules/         # Cursor-specific authoring rules
 ├── templates/
 │   └── cheat-sheet.md     # Canonical skeleton for new games

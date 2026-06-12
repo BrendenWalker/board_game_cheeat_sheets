@@ -52,6 +52,8 @@ Scoring, end game conditions, variants, edge cases, quick-reference tables.
 
 When removing a cheat sheet, remove its index entry as well.
 
+The publish workflow auto-discovers new `games/*.md` files for GitHub Pages and PDF artifacts — no extra build config is required.
+
 ## Writing style
 
 - Terse bullets, imperative voice, no fluff
@@ -93,7 +95,7 @@ Before finishing, verify:
 - [ ] No duplicate prose between turn summary and step details
 - [ ] Multi-part steps use parent bullets with sub-bullets (not semicolon chains)
 - [ ] Filename is `games/<game-slug>.md` with correct slug format
-- [ ] README **Board Game Index** includes a link to the new cheat sheet (alphabetical by title)
+- [ ] README **Board Game Index** includes a link to the new cheat sheet (alphabetical by title; HTML/PDF publish picks up the file automatically)
 - [ ] Content is accurate and concise — quick-reference, not tutorial
 
 ## Example turn structure
