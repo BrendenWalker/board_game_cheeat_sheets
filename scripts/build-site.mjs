@@ -7,11 +7,15 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const gamesDir = join(root, 'games');
 const siteDir = join(root, '_site');
 const assetsDir = join(siteDir, 'assets');
+const GITHUB_REPO_URL = 'https://github.com/BrendenWalker/board_game_cheeat_sheets';
 
 function pageShell({ title, bodyHtml, mode }) {
   let chrome = '';
   if (mode === 'index') {
-    chrome = '<header class="site-header"><strong>Board Game Cheat Sheets</strong></header>';
+    chrome = `<header class="site-header site-header--index">
+    <strong>Board Game Cheat Sheets</strong>
+    <a href="${GITHUB_REPO_URL}">GitHub</a>
+  </header>`;
   } else if (mode === 'sheet') {
     chrome = `<header class="site-header"><a href="index.html">← All cheat sheets</a></header>
   <nav class="print-toolbar" aria-label="Print">
