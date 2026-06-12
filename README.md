@@ -43,17 +43,13 @@ Scoring, end game triggers, variants, edge cases, and quick-reference tables.
 
 ### Main section headings
 
-The three top-level sections (`Setup`, `Play`, `Additional details`) use:
-
-- Bold `##` heading: `## **Setup**`
-- **One** horizontal rule (`---`) directly beneath
-- **No** line above the heading
+The three top-level sections (`Setup`, `Play`, `Additional details`) use a bold `##` heading only:
 
 ```markdown
 ## **Setup**
-
----
 ```
+
+Do **not** add `---` beneath main section headings — GitHub already renders a line under headings, and an extra rule looks redundant.
 
 Use the same pattern for **Play** and **Additional details**.
 

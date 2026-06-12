@@ -2,11 +2,9 @@
 
 <!-- Replace "Game Name" with the official game title. -->
 
-<!-- Main sections (Setup, Play, Additional details): ## **Title** + one --- beneath; no line above. -->
+<!-- Main sections (Setup, Play, Additional details): ## **Title** only — do not add --- beneath (GitHub already underlines headings). -->
 
 ## **Setup**
-
----
 
 ### Board setup
 
@@ -29,8 +27,6 @@ Example:
 <!-- How first player is determined (e.g. high roll, last winner, app). -->
 
 ## **Play**
-
----
 
 ### Step-by-step turn
 
@@ -62,7 +58,5 @@ Example:
 -->
 
 ## **Additional details**
-
----
 
 <!-- Scoring, end game triggers, variants, edge cases, quick-reference tables. -->

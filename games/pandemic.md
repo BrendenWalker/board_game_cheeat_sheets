@@ -4,8 +4,6 @@ Cooperative — 2–4 players. Cure all four diseases before the team loses.
 
 ## **Setup**
 
----
-
 ### Board setup
 
 - Place board.
@@ -41,8 +39,6 @@ Cooperative — 2–4 players. Cure all four diseases before the team loses.
 Player holding the **highest-population city** card in their starting hand goes first.
 
 ## **Play**
-
----
 
 ### Step-by-step turn
 
@@ -96,8 +92,6 @@ Play passes left. Discuss freely; the active player makes final decisions.
 - City already has **3** cubes of that color → **outbreak** instead of placing a 4th.
 
 ## **Additional details**
-
----
 
 ### Outbreaks
 

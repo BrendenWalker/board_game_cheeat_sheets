@@ -4,8 +4,6 @@ Cooperative — 2–4 players. Seal all **4** gates before the Old Ones win.
 
 ## **Setup**
 
----
-
 ### Board setup
 
 - Place board; put **Cthulhu** Old One card **facedown** on its space.
@@ -54,8 +52,6 @@ Cooperative — 2–4 players. Seal all **4** gates before the Old Ones win.
 Player who most recently read a horror story goes first.
 
 ## **Play**
-
----
 
 ### Step-by-step turn
 
@@ -118,8 +114,6 @@ If **2** Evil Stirs are drawn together, resolve all four steps twice (Relics may
 - If the Summoning deck is empty, shuffle the discard to form a new deck (cards revealed **this** step stay in the discard).
 
 ## **Additional details**
-
----
 
 ### Sanity die
 

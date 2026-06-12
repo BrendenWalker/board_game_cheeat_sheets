@@ -4,8 +4,6 @@ Cooperative — 2–5 players. Build all 4 hydraulic structures before the flood
 
 ## **Setup**
 
----
-
 ### Board setup
 
 - Place board; set **5 ports**, **5 pumping stations**, and **36 water cubes** nearby.
@@ -63,8 +61,6 @@ Cooperative — 2–5 players. Build all 4 hydraulic structures before the flood
 Player whose Region card lists the shortest **Primary Defense Line** goes first.
 
 ## **Play**
-
----
 
 ### Step-by-step turn
 
@@ -139,8 +135,6 @@ If **2** Storms are drawn together, resolve all three steps twice; Events may be
 - For each region with **2** water cubes, add cubes to each adjacent region until each has at least **1**.
 
 ## **Additional details**
-
----
 
 ### Floods
 

@@ -55,7 +55,7 @@ When removing a cheat sheet, remove its index entry as well.
 ## Writing style
 
 - Terse bullets, imperative voice, no fluff
-- **Main section headings** — `## **Setup**`, `## **Play**`, `## **Additional details**`, each followed by **one** `---` line beneath. No line above the heading.
+- **Main section headings** — `## **Setup**`, `## **Play**`, `## **Additional details**` (bold title only). Do **not** add `---` beneath — GitHub already underlines headings.
 - **Multi-part steps use sub-bullets** — when a bullet has multiple parts, make it a parent bullet with indented sub-bullets; do not chain parts with semicolons or em dashes on one line
 - Use official rulebook terminology
 - Omit subsections that do not apply to the game
@@ -84,7 +84,7 @@ When removing a cheat sheet, remove its index entry as well.
 Before finishing, verify:
 
 - [ ] All three top-level sections present: Setup, Play, Additional details
-- [ ] Main sections use `## **Title**` plus one `---` line beneath (no line above)
+- [ ] Main sections use `## **Title**` only (no `---` beneath the heading)
 - [ ] Setup covers board setup, player setup, and choosing starting player
 - [ ] Play has an ordered, numbered turn flow
 - [ ] Commonly overlooked rules (if any) appear after Step-by-step turn, before Turn step details

@@ -16,7 +16,6 @@ Use exactly these headings in order (omit empty subsections):
 # Game Name
 
 ## **Setup**
----
 ### Board setup
 ...
 
@@ -27,7 +26,7 @@ Use exactly these headings in order (omit empty subsections):
 ...
 ```
 
-Main sections: bold `##` heading + one `---` line beneath only (no line above).
+Main sections: bold `##` heading only — no `---` beneath (GitHub underlines headings already).
 
 ## Style
 
@@ -40,7 +39,7 @@ Main sections: bold `##` heading + one `---` line beneath only (no line above).
 
 ## Before finishing
 
-- [ ] Setup, Play, and Additional details all present (`## **Title**` + one `---` beneath, no line above)
+- [ ] Setup, Play, and Additional details all present (`## **Title**` only, no `---` beneath)
 - [ ] Turn flow is ordered and complete
 - [ ] Commonly overlooked rules (if any) after Step-by-step turn, before Turn step details
 - [ ] Scoring / end game in Additional details (if applicable)
