@@ -45,6 +45,7 @@ Main sections: bold `##` heading + one `---` line beneath only (no line above).
 - [ ] Commonly overlooked rules (if any) after Step-by-step turn, before Turn step details
 - [ ] Scoring / end game in Additional details (if applicable)
 - [ ] File saved as `games/<lowercase-hyphenated-slug>.md`
+- [ ] README [Board Game Index](../../README.md#board-game-index) updated — `- [Game Title](games/<slug>.md)`, alphabetical by title
 
 ## Reference
 

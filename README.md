@@ -2,6 +2,12 @@
 
 Markdown quick-reference cheat sheets for board games. Each file distills setup, turn flow, and key details into a scannable format for use at the table.
 
+## Board Game Index
+
+- [Pandemic](games/pandemic.md)
+- [Pandemic: Reign of Cthulhu](games/reign-of-cthulhu.md)
+- [Pandemic: Rising Tide](games/rising-tide.md)
+
 ## Repository structure
 
 ```text
@@ -102,6 +108,7 @@ you may choose to play one action card from your hand if you wish...
 2. Save as `games/<game-slug>.md` (lowercase, hyphenated — e.g. `games/ticket-to-ride.md`).
 3. Fill in each section. Omit subsections that do not apply.
 4. Add **Turn step details** only for steps that need expansion (e.g. listing available actions).
+5. Add a link to the new cheat sheet in the [Board Game Index](#board-game-index) above (use the game's `#` title as link text; keep the list sorted alphabetically by title).
 
 ## AI-assisted authoring
 

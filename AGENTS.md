@@ -41,7 +41,16 @@ Scoring, end game conditions, variants, edge cases, quick-reference tables.
 1. **Read the template** — [`templates/cheat-sheet.md`](templates/cheat-sheet.md)
 2. **Research the rules** — use official rulebooks; note player count and edition only when they change setup or play
 3. **Draft the cheat sheet** — save to `games/<game-slug>.md`
-4. **Self-check** — run through the quality checklist below before finishing
+4. **Update the Board Game Index** — in [`README.md`](README.md), add a bullet link under **Board Game Index** using the cheat sheet's `#` title as link text and `games/<game-slug>.md` as the path; keep entries sorted alphabetically by title
+5. **Self-check** — run through the quality checklist below before finishing
+
+### Board Game Index format
+
+```markdown
+- [Game Title](games/game-slug.md)
+```
+
+When removing a cheat sheet, remove its index entry as well.
 
 ## Writing style
 
@@ -84,6 +93,7 @@ Before finishing, verify:
 - [ ] No duplicate prose between turn summary and step details
 - [ ] Multi-part steps use parent bullets with sub-bullets (not semicolon chains)
 - [ ] Filename is `games/<game-slug>.md` with correct slug format
+- [ ] README **Board Game Index** includes a link to the new cheat sheet (alphabetical by title)
 - [ ] Content is accurate and concise — quick-reference, not tutorial
 
 ## Example turn structure
