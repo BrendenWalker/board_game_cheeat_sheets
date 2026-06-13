@@ -1,8 +1,9 @@
-import { readdir, mkdir } from 'node:fs/promises';
+import { readdir, readFile, mkdir } from 'node:fs/promises';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mdToPdf } from 'md-to-pdf';
 import puppeteer from 'puppeteer';
+import { wrapSheetSections, PRINT_LAYOUT } from './cheat-sheet-html.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const gamesDir = join(root, 'games');
@@ -12,6 +13,16 @@ const stylesheet = resolve(root, 'assets', 'cheat-sheet.css');
 async function main() {
   await mkdir(pdfDir, { recursive: true });
   const executablePath = await puppeteer.executablePath();
+  const launchOptions = { executablePath };
+
+  // GitHub Actions and other Linux CI runners block Chrome's sandbox.
+  if (process.env.CI) {
+    launchOptions.args = [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+    ];
+  }
 
   const files = (await readdir(gamesDir))
     .filter((name) => name.endsWith('.md'))
@@ -25,18 +36,20 @@ async function main() {
     const slug = file.replace(/\.md$/, '');
     const inputPath = join(gamesDir, file);
     const dest = join(pdfDir, `${slug}.pdf`);
+    const markdown = await readFile(inputPath, 'utf8');
+    const margin = `${PRINT_LAYOUT.marginInches}in`;
 
     await mdToPdf(
-      { path: inputPath },
+      { content: wrapSheetSections(markdown) },
       {
         dest,
+        basedir: gamesDir,
         stylesheet,
-        launch_options: {
-          executablePath,
-        },
+        page_media_type: 'print',
+        launch_options: launchOptions,
         pdf_options: {
           format: 'Letter',
-          margin: { top: '0.6in', right: '0.6in', bottom: '0.6in', left: '0.6in' },
+          margin: { top: margin, right: margin, bottom: margin, left: margin },
           printBackground: true,
         },
       },

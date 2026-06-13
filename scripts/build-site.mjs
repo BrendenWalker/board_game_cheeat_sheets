@@ -1,19 +1,27 @@
 import { readdir, readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { marked } from 'marked';
+import { markdownToSheetHtml } from './cheat-sheet-html.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const gamesDir = join(root, 'games');
 const siteDir = join(root, '_site');
 const assetsDir = join(siteDir, 'assets');
+const GITHUB_REPO_URL = 'https://github.com/BrendenWalker/board_game_cheeat_sheets';
 
-marked.setOptions({ gfm: true });
-
-function pageShell({ title, bodyHtml, backLink }) {
-  const header = backLink
-    ? `<header class="site-header"><a href="${backLink}">← All cheat sheets</a></header>`
-    : `<header class="site-header"><strong>Board Game Cheat Sheets</strong></header>`;
+function pageShell({ title, bodyHtml, mode }) {
+  let chrome = '';
+  if (mode === 'index') {
+    chrome = `<header class="site-header site-header--index">
+    <strong>Board Game Cheat Sheets</strong>
+    <a href="${GITHUB_REPO_URL}">GitHub</a>
+  </header>`;
+  } else if (mode === 'sheet') {
+    chrome = `<header class="site-header"><a href="index.html">← All cheat sheets</a></header>
+  <nav class="print-toolbar" aria-label="Print">
+    <button type="button" onclick="window.print()">Print</button>
+  </nav>`;
+  }
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -24,7 +32,7 @@ function pageShell({ title, bodyHtml, backLink }) {
   <link rel="stylesheet" href="assets/cheat-sheet.css">
 </head>
 <body>
-  ${header}
+  ${chrome}
   <main>${bodyHtml}</main>
 </body>
 </html>
@@ -79,17 +87,17 @@ async function main() {
   const indexHtml = pageShell({
     title: 'Board Game Cheat Sheets',
     bodyHtml: `<h1>Board Game Cheat Sheets</h1>\n<ul class="index-list">\n${indexItems}\n</ul>`,
-    backLink: null,
+    mode: 'index',
   });
 
   await writeFile(join(siteDir, 'index.html'), indexHtml);
 
   for (const { slug, title, markdown } of games) {
-    const bodyHtml = marked.parse(markdown);
+    const bodyHtml = markdownToSheetHtml(markdown);
     const html = pageShell({
       title,
       bodyHtml,
-      backLink: 'index.html',
+      mode: 'sheet',
     });
     await writeFile(join(siteDir, `${slug}.html`), html);
   }

@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-site.mjs",
+    "check:print": "node scripts/check-print-layout.mjs",
     "postinstall": "puppeteer browsers install chrome",
     "pdf": "node scripts/build-pdfs.mjs"
   },

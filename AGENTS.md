@@ -54,6 +54,20 @@ When removing a cheat sheet, remove its index entry as well.
 
 The publish workflow auto-discovers new `games/*.md` files for GitHub Pages and PDF artifacts — no extra build config is required.
 
+## Print layout (Letter)
+
+**Goal:** the title plus **Setup**, and **Play** each fit on **at most one printed page**. **Additional details** may span multiple pages.
+
+After drafting or editing a sheet, run `npm run check:print`. The script measures rendered height against the same Letter margins and typography used for PDF export.
+
+If **Setup** or **Play** overflows, **stop and ask a human** how to proceed. Do **not** trim rules, move sections, or change print CSS on your own. Present options such as:
+
+- Shorten bullets or move reference material to **Additional details**
+- Condense or omit **Turn step details** (keep the numbered **Step-by-step turn**)
+- Approve tighter global print CSS (margins, font size, list spacing)
+- Approve two-column layout for **Setup** and/or **Play**
+- Accept multi-page **Setup** or **Play** for this game
+
 ## Writing style
 
 - Terse bullets, imperative voice, no fluff
@@ -97,6 +111,7 @@ Before finishing, verify:
 - [ ] Filename is `games/<game-slug>.md` with correct slug format
 - [ ] README **Board Game Index** includes a link to the new cheat sheet (alphabetical by title; HTML/PDF publish picks up the file automatically)
 - [ ] Content is accurate and concise — quick-reference, not tutorial
+- [ ] `npm run check:print` passes, or overflow was resolved with explicit human approval
 
 ## Example turn structure
 

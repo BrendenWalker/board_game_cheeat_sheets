@@ -28,6 +28,12 @@ Use exactly these headings in order (omit empty subsections):
 
 Main sections: bold `##` heading only — no `---` beneath (GitHub underlines headings already).
 
+## Print layout
+
+**Setup** (with title/intro) and **Play** must each fit on one Letter page. Run `npm run check:print` before finishing.
+
+If either section overflows, **ask the human** — do not trim content or change print CSS without approval. See **Print layout** in [`AGENTS.md`](../../AGENTS.md) for options to present.
+
 ## Style
 
 - Quick-reference only — terse bullets, imperative voice, no tutorial prose
@@ -45,6 +51,7 @@ Main sections: bold `##` heading only — no `---` beneath (GitHub underlines he
 - [ ] Scoring / end game in Additional details (if applicable)
 - [ ] File saved as `games/<lowercase-hyphenated-slug>.md`
 - [ ] README [Board Game Index](../../README.md#board-game-index) updated — `- [Game Title](games/<slug>.md)`, alphabetical by title (publish workflow auto-includes new games)
+- [ ] `npm run check:print` passes, or overflow resolved with explicit human approval
 
 ## Reference
 
