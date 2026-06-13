@@ -14,6 +14,7 @@ const MAIN_SECTION_HEADING = /^## \*\*.+\*\*\s*$/gm;
 export const PRINT_LAYOUT = {
   pageHeightPx: 11 * 96,
   marginInches: 0.5,
+  marginHorizontalInches: 0.25,
   get contentHeightPx() {
     return this.pageHeightPx - this.marginInches * 2 * 96;
   },

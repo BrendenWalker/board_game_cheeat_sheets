@@ -38,6 +38,7 @@ async function main() {
     const dest = join(pdfDir, `${slug}.pdf`);
     const markdown = await readFile(inputPath, 'utf8');
     const margin = `${PRINT_LAYOUT.marginInches}in`;
+    const marginHorizontal = `${PRINT_LAYOUT.marginHorizontalInches}in`;
 
     await mdToPdf(
       { content: wrapSheetSections(markdown) },
@@ -49,7 +50,12 @@ async function main() {
         launch_options: launchOptions,
         pdf_options: {
           format: 'Letter',
-          margin: { top: margin, right: margin, bottom: margin, left: margin },
+          margin: {
+            top: margin,
+            right: marginHorizontal,
+            bottom: margin,
+            left: marginHorizontal,
+          },
           printBackground: true,
         },
       },
