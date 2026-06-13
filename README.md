@@ -9,6 +9,7 @@ Markdown quick-reference cheat sheets for board games. Each file distills setup,
 - [Pandemic](games/pandemic.md)
 - [Pandemic: Reign of Cthulhu](games/reign-of-cthulhu.md)
 - [Pandemic: Rising Tide](games/rising-tide.md)
+- [Temple Raider](games/temple-raider.md)
 
 ## Published cheat sheets
 
